@@ -16,11 +16,11 @@ ctx.fillStyle = "#ff0000";
 var draw = document.getElementById("slate");
 draw.addEventListener('click', function(e){
     console.log("CLICKe");
-    var x = e.clientX;
+    var x = e.offsetX;
     console.log('x = ' + x);
-    var y = e.clientY;
+    var y = e.offsetY;
     console.log('y = ' + y);
-    ctx.fillRect( x, y, 50, 50 );
+    ctx.fillRect( x-25, y-25, 50, 50 );
 });
 
 // clear button
