@@ -18,17 +18,24 @@ draw.addEventListener('click', function(e){
     var y = e.offsetY;
     // rect
     if (shape == 0){
-        ctx.fillRect( x, y, 50, 50 );
+        drawBox(x,y);
     } 
     // dot
     else {
-        // ctx.beginPath() starts new path by emptying list of subpaths
-        ctx.beginPath();
-        ctx.ellipse(x, y, 25, 25, 0, 0, 7);
-        ctx.fill();
-
+        drawDot(x,y);
     }
 });
+
+function drawBox(x, y){
+    ctx.fillRect( x, y, 50, 50 );
+};
+
+function drawDot(x, y){
+    // ctx.beginPath() starts new path by emptying list of subpaths
+    ctx.beginPath();
+    ctx.ellipse(x, y, 25, 25, 0, 0, 7);
+    ctx.fill();
+};
 
 // clear button
 var clear = document.getElementById("b");
