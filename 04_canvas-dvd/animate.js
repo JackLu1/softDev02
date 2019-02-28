@@ -14,79 +14,79 @@ var growing = true;
 // dvd
 
 var dvdLogoSetup = function() {
-	window.cancelAnimationFrame( requestID );
-	clear();
+    window.cancelAnimationFrame( requestID );
+    clear();
 
-	var rectWidth = 100;
-	var rectHeight = 50;
-	var xVel = 1;
-	var yVel = 1;
+    var rectWidth = 100;
+    var rectHeight = 50;
+    var xVel = 1;
+    var yVel = 1;
 
-	var rectX = Math.floor( Math.random() * (canvas.width - rectWidth) );
-	var rectY = Math.floor( Math.random() * (canvas.height - rectHeight) );
+    var rectX = Math.floor( Math.random() * (canvas.width - rectWidth) );
+    var rectY = Math.floor( Math.random() * (canvas.height - rectHeight) );
 
-	// bounce on sides: inverse xvel
-	// bounce on top/bot: inverse yvel
+    // bounce on sides: inverse xvel
+    // bounce on top/bot: inverse yvel
 
-	var logo = new Image();
-	logo.src = "logo_dvd.jpg";
+    var logo = new Image();
+    logo.src = "logo_dvd.jpg";
 
-	ctx.drawImage( logo, rectX, rectY, rectWidth, rectHeight );
+    ctx.drawImage( logo, rectX, rectY, rectWidth, rectHeight );
 
-	var dvdLogo = function(){
-		console.log(requestID);
-		// touch top or bot
-		if ( rectX == 0 || rectX + rectWidth == canvas.width ){
-			xVel *= -1;
-		}
-		// touch sides
-		if ( rectY == 0 || rectY + rectHeight == canvas.height ){
-			yVel *= -1;
-		}
-		ctx.drawImage( logo, rectX += xVel, rectY += yVel, rectWidth, rectHeight );
-		requestID = window.requestAnimationFrame(dvdLogo);
-	};
+    var dvdLogo = function(){
+        console.log(requestID);
+        // touch top or bot
+        if ( rectX == 0 || rectX + rectWidth == canvas.width ){
+            xVel *= -1;
+        }
+        // touch sides
+        if ( rectY == 0 || rectY + rectHeight == canvas.height ){
+            yVel *= -1;
+        }
+        ctx.drawImage( logo, rectX += xVel, rectY += yVel, rectWidth, rectHeight );
+        requestID = window.requestAnimationFrame(dvdLogo);
+    };
 
-	dvdLogo();
+    dvdLogo();
 }
 
 
 var clear = function()
 {
-	ctx.clearRect(0,0,canvas.width,canvas.height)
+    ctx.clearRect(0,0,canvas.width,canvas.height)
 }
 var drawDot = function()
 {
-	window.cancelAnimationFrame(requestID);
-	clear();
-	if ( radius >= canvas.width / 2 || radius <= 0)
-	{
-		growing = !growing
-	}
+    window.cancelAnimationFrame(requestID);
+    clear();
+    if ( radius >= canvas.width / 2 || radius <= 0)
+    {
+        growing = !growing
+    }
 
-	if (growing)
-	{
-		radius++;
-	}
-	else
-	{
-		radius--;
-	}
+    if (growing)
+    {
+        radius++;
+    }
+    else
+    {
+        radius--;
+    }
 
-	clear();
+    clear();
 
-	ctx.fillStyle = "#00FFFF";
-	ctx.beginPath();
-	ctx.ellipse(canvas.width / 2, canvas.height / 2, radius, radius, 0, 0, 2 * Math.PI);
-	ctx.stroke;
-	ctx.fill();
+    ctx.fillStyle = "#00FFFF";
+    ctx.beginPath();
+    ctx.ellipse(canvas.width / 2, canvas.height / 2, radius, radius, 0, 0, 2 * Math.PI);
+    ctx.stroke;
+    ctx.fill();
 
-	requestID = window.requestAnimationFrame(drawDot);
+    requestID = window.requestAnimationFrame(drawDot);
 };
 
 var stopIt = function(e)
 {
-	window.cancelAnimationFrame(requestID);
+    window.cancelAnimationFrame(requestID);
 };
 
 document.getElementById('circle').addEventListener('click', drawDot);
