@@ -2,16 +2,16 @@
 import pymongo
 
 
-#SERVER_ADDR = "159.230.61.139"
-#connection = pymongo.MongoClient(SERVER_ADDR)
+SERVER_ADDR = "mongodb://159.230.61.139:27017"
+connection = pymongo.MongoClient(SERVER_ADDR)
 
-connection = pymongo.MongoClient('mongodb://localhost:27017/')
+#connection = pymongo.MongoClient('mongodb://localhost:27017/')
 db = connection.dataset
 
 for a in db.restaurants.find():
     print(a)
 
-boroughs = ['Bronx', 'Brooklyn', 'Manhattan', 'Queens', 'Staten Island']
+# boroughs = ['Bronx', 'Brooklyn', 'Manhattan', 'Queens', 'Staten Island']
 # data = db.restaurants.find({
 #     "borough":"Bronx"
 #     })
