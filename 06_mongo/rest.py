@@ -11,4 +11,6 @@ collection = db.restaurants
 data = db.restaurants.find({
     "borough":"Bronx"
     })
-pprint(data[1])
+#pprint(data[1])
+for i in data:
+    print(i)
