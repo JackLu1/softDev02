@@ -10,3 +10,8 @@ db = connection.dataset
 
 for a in db.restaurants.find():
     print(a)
+
+boroughs = ['Bronx', 'Brooklyn', 'Manhattan', 'Queens', 'Staten Island']
+# data = db.restaurants.find({
+#     "borough":"Bronx"
+#     })
