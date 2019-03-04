@@ -2,6 +2,9 @@
 import pymongo
 
 
+
+
+
 SERVER_ADDR = "mongodb://159.230.61.139:27017"
 connection = pymongo.MongoClient(SERVER_ADDR)
 
