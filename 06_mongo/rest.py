@@ -10,14 +10,12 @@ import pprint
 
 #SERVER_ADDR = "159.89.238.115"
 SERVER_ADDR = "127.0.0.1"
-#connection = pymongo.MongoClient('mongodb://localhost:27017/')
 connection = pymongo.MongoClient(SERVER_ADDR)
 
 
 pp = pprint.PrettyPrinter(indent=4)
 db = connection.db
 collection = db.restaurants
-#cursor = collection.find({"borough": "Queens"})
 
 
 # restaurants with specified borough
