@@ -15,7 +15,7 @@ import pymongo
 import pprint
 
 #all pokemon of specific type
-SERVER_ADDR = "127.0.0.1"
+SERVER_ADDR = "159.89.238.115"
 connection = pymongo.MongoClient(SERVER_ADDR)
 
 pp = pprint.PrettyPrinter(indent=4)
