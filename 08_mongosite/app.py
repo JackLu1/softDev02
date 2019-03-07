@@ -28,9 +28,10 @@ def index():
 
 @app.route('/type')
 def getType():
-    pass
+    t = request.form['ty']
+    print(t)
 
-@app.route('/height')
+@app.route('/height', methods=['GET', 'POST'])
 def getHeight():
     pass
 
