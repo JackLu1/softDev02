@@ -1,8 +1,9 @@
-# Team team -- Peter Jack Lu
+# Team team -- Peter Cwalina, Jack Lu, Shafali Gupta
 # SoftDev1 pd8
-# Kxx -- hwname
-# 201x-xx-xx
+# K08 -- Ay Mon, Go Git It From Yer Flask
+# 2019-03-07
 
+# github.com/jacklu1
 # github.com/petercwalina
 # github.com/shafali731
 
