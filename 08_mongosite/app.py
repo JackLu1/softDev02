@@ -1,51 +1,41 @@
-# Team team -- Peter Cwalina, Jack Lu, Shafali Gupta
-# SoftDev1 pd8
-# K08 -- Ay Mon, Go Git It From Yer Flask
-# 2019-03-07
+#Jack Lu, Peter Cwalina, Shafali Gupta
+#Softdev2 pd8
+#K08Ay Mon, Go Git It From Yer Flask
+#2019-03-07
 
-# github.com/jacklu1
-# github.com/petercwalina
-# github.com/shafali731
+import os
+from flask import Flask, render_template, url_for, redirect, flash, request
+from mango import *
 
-# stdlib
-import json
-from urllib import request
-
-# pip install
-from flask import Flask, render_template
-
-# custom modules
 
 app = Flask(__name__)
 
-KEY = ""
-URL_STUB = ""
-URL = URL_STUB + KEY
-
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template("base.html")
+    return render_template("index.html")
 
-@app.route('/type')
-def getType():
-    t = request.form['ty']
-    print(t)
+@app.route("/newaddress", methods = ["GET","POST"])
+def newaddress():
+    if request.method == "POST":
+        info = {}
+        ip = request.form["ip"]
+        if ip:
+            connect(ip)
+        iden = request.form['id']
+        if iden:
+            data = find_pokemon_by_id(int(iden))
+            if len(data) != 0:
+                data = data[0]
+                info['img'] = data['img']
+                info['name'] = data['name']
+                info['id'] = data['id']
+                info['weaknesses'] = data['weaknesses']
+                info['type'] = data['type']
+        return render_template('index.html', **info)
+    else:
+        return redirect(url_for("index"))
 
-@app.route('/height', methods=['GET', 'POST'])
-def getHeight():
-    pass
 
-@app.route('/rare')
-def getRare():
-    pass
-
-if __name__=="__main__":
+if __name__ == "__main__":
     app.debug = True
     app.run()
-
-#if __name__=="__main__":
-#    app.debug = True
-#    app.run(host="0.0.0.0")
-
-#browser location
-# <droplet addr>:5000
