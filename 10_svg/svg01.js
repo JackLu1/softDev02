@@ -1,33 +1,49 @@
-var pic = document.getElementById("vimage");
+var svg = document.getElementById("vimage");
 var clear = document.getElementById('but_clear');
 
 var oldx;
 var oldy;
 
 // click on blank create circle
-pic.addEventListener('click', function(e){
+svg.addEventListener('click', function(e){
     var c = document.createElementNS("http://www.w3.org/2000/svg", "circle")
-    c.setAttribute('cx', e.offsetX);
-    c.setAttribute("cy", e.offsetY);
+    rect = svg.getBoundingClientRect();
+    c.setAttribute('cx', e.clientX - rect.left);
+    c.setAttribute("cy", e.clientY - rect.top);
     c.setAttribute("r", 20);
     c.setAttribute("fill", "red");
     c.setAttribute("stroke", "black");
-    c.style.pointerEvents = 'none';
-    pic.appendChild(c);
-    c.addEventListener('click', color_change(c));
+    svg.appendChild(c);
+    c.addEventListener('click', color_change);
 });
 
 // click on circle, change color
-function color_change(c){
-    console.log(c);
-    c.setAttribute('fill', 'green');
+var color_change = function(e){
+    //console.log(e);
+    e.stopImmediatePropagation();
+    circle = e.explicitOriginalTarget;
+    if (circle.getAttribute('fill') == 'red'){
+        circle.setAttribute('fill', 'blue');
+    }
+    else {
+        //already blue
+        circle.addEventListener('click', teleport(circle));
+    }
+    //svg.removeEventListener('click', color_change);
+
 };
 
-// click again to remove and make new random
+// teleport circle to random positoin after 2 clicks
+function teleport(c){
+    newX = Math.random() * 500;
+    newY = Math.random() * 500;
+    c.setAttribute('cx', parseInt(newX));
+    c.setAttribute('cy', parseInt(newY));
+};
 
 
 clear.addEventListener('click', function(){
-    while (pic.lastChild){
-        pic.removeChild(pic.lastChild);
+    while (svg.lastChild){
+        svg.removeChild(svg.lastChild);
     }
 });
