@@ -1,5 +1,6 @@
 var svg = document.getElementById("vimage");
 var clear = document.getElementById('but_clear');
+var move_but = document.getElementById('')
 
 var oldx;
 var oldy;
