@@ -208,7 +208,6 @@ Libya,30.00
 Kosovo,30.50
 Kiribati,30.60
 Namibia,34.00
-Congo,Republicofthe,36.00
 MarshallIslands,36.00
 Djibouti,40.00
 Kenya,40.00

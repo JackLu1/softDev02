@@ -158,7 +158,6 @@ CaboVerde,7000
 Uzbekistan,6900
 Vietnam,6900
 Angola,6800
-CongoRepublicofthe,6800
 Moldova,6700
 Burma,6300
 Timor-Leste,6000
@@ -195,7 +194,6 @@ Syria,2900
 Nepal,2700
 Vanuatu,2700
 GambiaThe,2600
-WesternSahara,2500
 Yemen,2500
 Uganda,2400
 Benin,2300
