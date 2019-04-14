@@ -78,18 +78,14 @@ def transpose(m):
 
 # ['00', '22', '44', '66', '88']
 lst = [str(x * 2) * 2 for x in range(5)]
-print(lst)
+#print(lst)
 
 # [7, 17, 27, 37, 47]
 lst = [x*10 + 7 for x in range(5)]
-print(lst)
+#print(lst)
 
 # [0, 0, 0, 0, 1, 2, 0, 2, 4]
-lst=[]
-for i in range(3):
-    lst.append(i * 0)
-    lst.append(i * 1)
-    lst.append(i * 2)
+lst = [x for x in range(3) for x in (x*0, x*1, x*2)]
 #print(lst)
 
 # composite [0, 100]
