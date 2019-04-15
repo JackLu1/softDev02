@@ -43,12 +43,12 @@ for x in l:
             comps.append(a)
         i += 1
 comps.sort()
-#print(comps)
+print(comps)
 
 # primes [0, 100]
 for i in comps:
     lst.remove(i)
-#print(lst)
+print(lst)
 
 # all divisors
 def getDiv(n):
