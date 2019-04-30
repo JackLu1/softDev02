@@ -43,6 +43,6 @@ d3.json('./data.json').then(function(data){
     } )
     body.append('p')
         .text('Number of schools with more than 10% ELL and more than 50% white = ' 
-            + filtered.length);
+            + ell_filtered.length);
 
 });
