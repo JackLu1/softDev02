@@ -7,13 +7,23 @@
 #        return memo[-1]
 #    return helper
 
-def memoize(f):
-    memo = {}
-    def helper(x):
-        if x not in memo:
-            memo[x] = f(x)
-        return memo[x]
-    return helper
+#def memoize(f):
+#    memo = {}
+#    def helper(x):
+#        if x not in memo:
+#            memo[x] = f(x)
+#        return memo[x]
+#    return helper
+
+def memoize(fxn):
+    cache = {}
+    def memoized_fxn(*args):
+        if args in cache:
+            return cache[args]
+        result = fxn(*args)
+        cache[args] = result
+        return result
+    return memoized_fxn
 
 @memoize
 def fib(n):
@@ -24,16 +34,7 @@ def fib(n):
     else:
         return fib(n-1) + fib(n-2)
 
-fib = memoize(fib)
-print(fib(41))
+#fib = memoize(fib)
+print(fib(40))
 #print( fib(40) )
-
-def memoize(fxn):
-    cache = {}
-    def memoized_fxn(*args):
-        if args in cache:
-            return cache[args]
-        cache[args] = fxn(*args)
-        return result
-    return memoized_fxn
 
