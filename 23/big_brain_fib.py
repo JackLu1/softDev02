@@ -1,7 +1,10 @@
 def memoize(f):
-    memo = {}
+    memo = [1, 1]
     def helper(x):
-        pass
+        x -= 2
+        for _ in range(x):
+            memo.append( memo[-1] + memo[-2] )
+        return memo[-1]
     return helper
 
 def fib(n):
